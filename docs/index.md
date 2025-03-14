@@ -321,9 +321,37 @@ EXAMPLE 9: A ML-DSA-65/EdDSA public key encoded encoded as a CompositeJWK for as
 }
 ```
 
+### Proof Representations
+
+This section details the proof representation formats that are defined by this specification.
+
+#### DataIntegrityProof
+A proof contains the attributes specified in the [Proofs section](https://www.w3.org/TR/vc-data-integrity/#proofs) of [VC-DATA-INTEGRITY](https://www.w3.org/TR/vc-data-integrity/) with the following restrictions.
+
+The type property of the proof MUST be DataIntegrityProof.
+
+The cryptosuite property of the proof MUST be experimental-ml-dsa-ecdsa-2025 or experimental-ml-dsa-eddsa-2025 based on the composite used.
+
+The value of the proofValue property of the proof MUST be produced as the concatenation of a ML-DSA-44/ECDSA signatures, of a ML-DSA-44/EdDSA signatures, of a  ML-DSA-65/ECDSA, and of a ML-DSA-65/EdDSA signatures produced according to using the algorithms specified in [section 3]. 
+
 ## Algorithms
 
+The following section describes multiple Data Integrity cryptographic suites that utilize the ML-DSA, ECDSA and EdDSA in composite  signature algorithms.
 
+## Security Considerations
+
+This section is non-normative.
+
+Before reading this section, readers are urged to familiarize themselves with general security advice provided in the [Security Considerations section of the Data Integrity specification](https://www.w3.org/TR/vc-data-integrity/#security-considerations).
+
+
+## Privacy Considerations
+
+This section is non-normative.
+
+Before reading this section, readers are urged to familiarize themselves with general privacy advice provided in the [Privacy Considerations section of the Data Integrity specification](https://www.w3.org/TR/vc-data-integrity/#privacy-considerations).
+
+The following section describes privacy considerations that developers implementing this specification should be aware of in order to avoid violating privacy assumptions.
 
 
 <section id='conformance'>
