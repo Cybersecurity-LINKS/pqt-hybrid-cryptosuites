@@ -1,6 +1,6 @@
 ---
 layout: respec
-title: Your Specification
+title: Post-Quantum / Traditional hybrid cryptosuite v0.1
 respec: >
   {
     "name": "your-spec-short-name",
@@ -16,10 +16,16 @@ respec: >
     },
     "editors": [
       {
-        "name": "Your Name",
-        "url": "https://example.com",
-        "company": "Your Company",
-        "companyURL": "https://example.com"
+        "name": "Andrea Vesco",
+        "url": "www.linkedin.com/in/avesco",
+        "company": "LINKS Foundation",
+        "companyURL": ""
+      }
+      {
+        "name": "Alessio Claudio",
+        "url": "https://www.linkedin.com/in/alessio-claudio-ab260923b",
+        "company": "LINKS Foundation",
+        "companyURL": ""
       }
     ],
     "bibliography": {
@@ -60,51 +66,265 @@ respec: >
 }
 </style>
 
-<p class="red43">Custom CSS is Supported!</p>
+## Status of This Document
 
-## Markdown is Supported !
+This specification was published by the Cybersecurity Research Group @ LINKS Foundation. 
 
-<p>
-Example link to bibliography here... [[RDF-DATASET-NORMALIZATION]].
-</p>
+This specification is experimental, do not use it in any production setting.
 
-#### Example:
+[GitHub Issues](https://github.com/Cybersecurity-LINKS/pq-cryptosuites/issues) are preferred for discussion of this specification.
 
+
+## Introduction
+
+This specification defines several cryptographic suites for the purpose of creating, and verifying proofs for Post-Quantum / Traditional Hybrid signatures in conformance with the Data Integrity [VC-DATA-INTEGRITY](https://w3c.github.io/vc-data-integrity/) specification.
+
+This specification uses either the RDF Dataset Canonicalization Algorithm [RDF-CANON](https://www.w3.org/TR/rdf-canon/) or the JSON Canonicalization Scheme [RFC8785](https://www.rfc-editor.org/rfc/rfc8785) to transform the input document into its canonical form. 
+
+<p class="red43"> **TBU** It uses SHA-256 [RFC6234] as the message digest algorithm and ML-DSA-44 as the signature algorithm.</p>
+
+### Terminology
+
+Terminology used throughout this document is defined in the [Terminology](https://www.w3.org/TR/vc-data-integrity/#terminology) section of the [Verifiable Credential Data Integrity 1.0](https://www.w3.org/TR/vc-data-integrity/) specification.
+
+
+## Data Model
+
+The following sections outline the data model that is used by this specification to express verification methods, such as cryptographic PQ/T hybrid public keys, and data integrity hybrid PQ/T hybrid proofs, such as PQ/T hybrid digital signatures.
+
+### Verification Methods
+
+This cryptographic suite is used to verify Data Integrity Proofs [VC-DATA-INTEGRITY] produced using <span style="color:red">TBU Edwards Curve cryptographic key</span> material. 
+
+<span style="color:red">
+JSON Web Key [RFC7517]
+The encoding formats for those key types are provided in this section.
+This suite MAY be used to verify Data Integrity Proofs [VC-DATA-INTEGRITY] produced by BLS12-381 public key material encoded as a JsonWebKey.
+</span>
+
+ Lossless cryptographic key transformation processes that result in equivalent cryptographic key material MAY be used for the processing of digital signatures.
+
+
+This is a set of examples of public keys encoded as a JsonWebKey, the examples are instrumental to introduce public keys encoded as CompositeJwk 
+
+EXAMPLE 1: An ECDSA 256-bit public key encoded as a JsonWebKey 
 ```json
 {
-  "id": "did:example:123#key-0",
-  "controller": "did:example:123",
-  "type": "JsonWebKey2020",
+  "id": "https://example.com/issuer/123#key-0",
+  "type": "JsonWebKey",
+  "controller": "https://example.com/issuer/123",
   "publicKeyJwk": {
-    "crv": "secp256k1",
-    "kty": "EC",
-    "x": "dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A",
-    "y": "36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA"
+      "kty": "EC",
+      "crv": "P-256",
+      "x": "",
+      "y": ""
   }
 }
 ```
 
-<section data-dfn-for="Foo" data-link-for="Foo">
-  <h2>Start your spec!</h2>
-  <pre class="idl">
-  interface Foo {
-    attribute Bar bar;
-    undefined doTheFoo();
-  };
-  </pre>
-  <section>
-    <h2><dfn>bar</dfn> attribute</h2>
-    <p>When getting, the <a>bar</a> attribute returns you a 🍹.</p>
-  </section>
-  <section>
-    <h2><dfn>doTheFoo(DOMString thing)</dfn> method</h2>
-    <p>When called, <code>doTheFoo(<var>thing</var>)</code> it MUST behave as follows:</p>
-    <ol class="algorithm">
-      <li>If <var>thing</var>....</li>
-      <li>Let <var>someProp</var>... of the [[!DOM]] spec.</li>
-    </ol>
-  </section>
-</section>
+EXAMPLE 2: An Ed25519 256-bit public key encoded as a JsonWebKey 
+```json
+{
+  "id": "https://example.com/issuer/123#key-0",
+  "type": "JsonWebKey",
+  "controller": "https://example.com/issuer/123",
+  "publicKeyJwk": {
+      "kty": "EC",
+      "crv": "Ed25519",
+      "x": "",
+      "y": ""
+  }
+}
+```
+
+EXAMPLE 3: A ML-DSA-44 public key encoded as a JsonWebKey
+```json
+{
+  "id": "https://example.com/issuer/123#key-0",
+  "type": "JsonWebKey",
+  "controller": "https://example.com/issuer/123",
+  "publicKeyJwk": {
+    "kid": "key-0",
+    "kty": "ML-DSA",
+    "alg": "ML-DSA-44",
+    "pub": ""
+  }
+}
+```
+
+EXAMPLE 4: A ML-DSA-65 public key encoded as a JsonWebKey
+```json
+{
+  "id": "https://example.com/issuer/123#key-0",
+  "type": "JsonWebKey",
+  "controller": "https://example.com/issuer/123",
+  "publicKeyJwk": {
+    "kid": "key-0",
+    "kty": "ML-DSA",
+    "alg": "ML-DSA-65",
+    "pub": ""
+  }
+}
+```
+
+#### CompositeJWK
+A public key encoded as a CompositeJWK contains a PQ public key encoded as JsonWebKey and a traditional public key encoded as JsonWebKey. In addition the CompositeJWK contain a string "algId" which represents the name of the algorithms used to generate the hybrid proof and the hash algorithm used to pre-hash the document.
+
+EXAMPLE 5: A ML-DSA-44/ECDSA public key encoded encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+  "algId": "id-MLDSA44-ECDSA-SHA512",
+  "pqPublicKey": {
+    "kid": "key-0",
+    "kty": "ML-DSA",
+    "alg": "ML-DSA-44",
+    "pub": ""
+  },
+  "traditionalPublicKey": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "",
+    "y": ""
+  }
+}
+}
+```
+
+EXAMPLE 6: A ML-DSA-65/ECDSA public key encoded encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+  "algId": "id-MLDSA44-ECDSA-SHA512",
+  "pqPublicKey": {
+    "kid": "key-0",
+    "kty": "ML-DSA",
+    "alg": "ML-DSA-65",
+    "pub": ""
+  },
+  "traditionalPublicKey": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "",
+    "y": ""
+  }
+}
+}
+```
+
+EXAMPLE 7: A ML-DSA-44/ECDSA public key encoded encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+  "algId": "id-MLDSA44-ECDSA-SHA512",
+  "pqPublicKey": {
+    "kid": "key-0",
+    "kty": "ML-DSA",
+    "alg": "ML-DSA-44",
+    "pub": ""
+  },
+  "traditionalPublicKey": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "",
+    "y": ""
+  }
+}
+}
+```
+
+EXAMPLE 8: A ML-DSA-65/ECDSA public key encoded encoded as a CompositeJWK
+
+```json
+{
+  "id": "https://example.com/issuer/123#key-0",
+  "type": "CompositeJWK",
+  "controller": "https://example.com/issuer/123",  
+  "compositeJwk": {
+   "algId": "id-MLDSA65-Ed25519-SHA512",
+   "pqPublicKey": {
+     "kty": "ML-DSA",
+     "alg": "ML-DSA-65",
+     "kid": ".. key thumbprint ..",
+     "pub": ".. encoded public key .."
+  },
+  "traditionalPublicKey": {
+    "crv": "Ed25519",
+    "x": ".. x coordinate ..",
+    "kty": "OKP",
+    "kid": ".. key thumbprint .."
+  }
+}
+}
+```
+EXAMPLE 9: A ML-DSA-65/EdDSA public key encoded encoded as a CompositeJWK for assertion method, and a ML-DSA-44/EdDSA public key encoded encoded as a CompositeJWK for authentication method in a controller document
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/multikey/v1"
+  ],
+  "id": "did:example:123",
+  "verificationMethod": [{
+    "id": "did:example:123#key-0",
+    "type": "CompositeJWK",
+    "controller": "did:example:123",
+    "compositeJwk": {
+      "algId": "id-MLDSA65-Ed25519-SHA512",
+      "pqPublicKey": {
+        "kty": "ML-DSA",
+        "alg": "ML-DSA-65",
+        "kid": ".. key thumbprint ..",
+        "pub": ".. encoded public key .."
+      },
+      "traditionalPublicKey": {
+        "crv": "Ed25519",
+        "x": ".. x coordinate ..",
+        "kty": "OKP",
+        "kid": ".. key thumbprint .."
+      }
+  }{
+    "id": "did:example:123#key-1",
+    "type": "CompositeJWK",
+    "controller": "did:example:123",
+    "compositeJwk": {
+      "algId": "id-MLDSA44-Ed25519-SHA512",
+      "pqPublicKey": {
+        "kty": "ML-DSA",
+        "alg": "ML-DSA-44",
+        "kid": ".. key thumbprint ..",
+        "pub": ".. encoded public key .."
+      },
+      "traditionalPublicKey": {
+        "crv": "Ed25519",
+        "x": ".. x coordinate ..",
+        "kty": "OKP",
+        "kid": ".. key thumbprint .."
+      }
+  }],
+  "assertionMethod": [
+    "did:example:123#key-0"
+  ]
+  "authentication": [
+    "did:example:123#key-1"
+  ]
+}
+```
+
+## Algorithms
+
+
+
 
 <section id='conformance'>
   <!-- This section is filled automatically by ReSpec. -->
