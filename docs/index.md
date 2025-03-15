@@ -107,13 +107,18 @@ This suite MAY be used to verify Data Integrity Proofs [VC-DATA-INTEGRITY] produ
 
 This is a set of examples of public keys encoded as a JsonWebKey, the examples are instrumental to introduce public keys encoded as CompositeJwk 
 
-EXAMPLE 1: An ECDSA 256-bit public key encoded as a JsonWebKey 
+[//]: # (JWK RFC 7517 - crv P-256,P-384,P-521)
+[//]: # (JWK with Ed RFC 8037 - OKP Octet Key Pair - crv Ed25519, Ed448)
+[//]: # (Dove abbiamo preso JWK strcture for ML-DSA?)
+
+EXAMPLE 1a: A P-256 public key encoded as a JsonWebKey 
 ```json
 {
   "id": "https://example.com/issuer/123#key-0",
   "type": "JsonWebKey",
   "controller": "https://example.com/issuer/123",
   "publicKeyJwk": {
+      "kid": "key-0",
       "kty": "EC",
       "crv": "P-256",
       "x": "",
@@ -122,17 +127,48 @@ EXAMPLE 1: An ECDSA 256-bit public key encoded as a JsonWebKey
 }
 ```
 
-EXAMPLE 2: An Ed25519 256-bit public key encoded as a JsonWebKey 
+EXAMPLE 1b: A P-384 public key encoded as a JsonWebKey 
 ```json
 {
   "id": "https://example.com/issuer/123#key-0",
   "type": "JsonWebKey",
   "controller": "https://example.com/issuer/123",
   "publicKeyJwk": {
+      "kid": "key-0",
       "kty": "EC",
-      "crv": "Ed25519",
+      "crv": "P-384",
       "x": "",
       "y": ""
+  }
+}
+```
+
+EXAMPLE 2a: An Ed25519 public key encoded as a JsonWebKey 
+```json
+{
+  "id": "https://example.com/issuer/123#key-0",
+  "type": "JsonWebKey",
+  "controller": "https://example.com/issuer/123",
+  "publicKeyJwk": {
+      "kid": "key-0",
+      "kty": "OKP", 
+      "crv": "Ed25519",
+      "x": ""
+  }
+}
+```
+
+EXAMPLE 2b: An Ed448 public key encoded as a JsonWebKey 
+```json
+{
+  "id": "https://example.com/issuer/123#key-0",
+  "type": "JsonWebKey",
+  "controller": "https://example.com/issuer/123",
+  "publicKeyJwk": {
+      "kid": "key-0",
+      "kty": "OKP", 
+      "crv": "Ed448",
+      "x": ""
   }
 }
 ```
@@ -167,112 +203,201 @@ EXAMPLE 4: A ML-DSA-65 public key encoded as a JsonWebKey
 }
 ```
 
-#### CompositeJWK
-A public key encoded as a CompositeJWK contains a PQ public key encoded as JsonWebKey and a traditional public key encoded as JsonWebKey. In addition the CompositeJWK contain a string "algId" which represents the name of the algorithms used to generate the hybrid proof and the hash algorithm used to pre-hash the document.
-
-EXAMPLE 5: A ML-DSA-44/ECDSA public key encoded encoded as a CompositeJWK
-```json
-{
- "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
- "controller": "https://example.com/issuer/123",
- "compositeJwk": {
-  "algId": "id-MLDSA44-ECDSA-SHA512",
-  "pqPublicKey": {
-    "kid": "key-0",
-    "kty": "ML-DSA",
-    "alg": "ML-DSA-44",
-    "pub": ""
-  },
-  "traditionalPublicKey": {
-    "kty": "EC",
-    "crv": "P-256",
-    "x": "",
-    "y": ""
-  }
-}
-}
-```
-
-EXAMPLE 6: A ML-DSA-65/ECDSA public key encoded encoded as a CompositeJWK
-```json
-{
- "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
- "controller": "https://example.com/issuer/123",
- "compositeJwk": {
-  "algId": "id-MLDSA44-ECDSA-SHA512",
-  "pqPublicKey": {
-    "kid": "key-0",
-    "kty": "ML-DSA",
-    "alg": "ML-DSA-65",
-    "pub": ""
-  },
-  "traditionalPublicKey": {
-    "kty": "EC",
-    "crv": "P-256",
-    "x": "",
-    "y": ""
-  }
-}
-}
-```
-
-EXAMPLE 7: A ML-DSA-44/ECDSA public key encoded encoded as a CompositeJWK
-```json
-{
- "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
- "controller": "https://example.com/issuer/123",
- "compositeJwk": {
-  "algId": "id-MLDSA44-ECDSA-SHA512",
-  "pqPublicKey": {
-    "kid": "key-0",
-    "kty": "ML-DSA",
-    "alg": "ML-DSA-44",
-    "pub": ""
-  },
-  "traditionalPublicKey": {
-    "kty": "EC",
-    "crv": "P-256",
-    "x": "",
-    "y": ""
-  }
-}
-}
-```
-
-EXAMPLE 8: A ML-DSA-65/ECDSA public key encoded encoded as a CompositeJWK
-
+EXAMPLE 5: A ML-DSA-87 public key encoded as a JsonWebKey
 ```json
 {
   "id": "https://example.com/issuer/123#key-0",
-  "type": "CompositeJWK",
-  "controller": "https://example.com/issuer/123",  
-  "compositeJwk": {
-   "algId": "id-MLDSA65-Ed25519-SHA512",
-   "pqPublicKey": {
-     "kty": "ML-DSA",
-     "alg": "ML-DSA-65",
-     "kid": ".. key thumbprint ..",
-     "pub": ".. encoded public key .."
+  "type": "JsonWebKey",
+  "controller": "https://example.com/issuer/123",
+  "publicKeyJwk": {
+    "kid": "key-0",
+    "kty": "ML-DSA",
+    "alg": "ML-DSA-87",
+    "pub": ""
+  }
+}
+```
+
+
+https://datatracker.ietf.org/doc/draft-ietf-lamps-pq-composite-sigs/04/
+
+Pure ML-DSA Composite
+
+id-MLDSA44-ECDSA-P256
+id-MLDSA44-Ed25519
+id-MLDSA65-ECDSA-P256
+id-MLDSA65-ECDSA-P384
+id-MLDSA65-Ed25519 
+id-MLDSA87-ECDSA-P384
+id-MLDSA87-Ed448  
+
+Hashed ML-DSA Composite
+
+id-HashMLDSA44-ECDSA-P256-SHA256
+id-HashMLDSA44-Ed25519-SHA512 
+id-HashMLDSA65-ECDSA-P256-SHA512
+id-HashMLDSA65-ECDSA-P384-SHA512 
+id-HashMLDSA65-Ed25519-SHA512 
+id-HashMLDSA87-ECDSA-P384-SHA512 
+id-HashMLDSA87-Ed448-SHA512
+
+#### CompositeJWK
+A public key encoded as a CompositeJWK contains a PQ public key and a traditional public key both encoded as JsonWebKey. In addition, the CompositeJWK contains a string **algId** which represents the name of the algorithms used to generate the hybrid proof and the hash algorithm used to pre-hash the document.
+
+EXAMPLE 6: A ML-DSA-44/P-256 composite public key encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+    "algId": "id-MLDSA44-P256",
+    "pqPublicKey": {
+      "kid": "key-0",
+      "kty": "ML-DSA",
+      "alg": "ML-DSA-44",
+      "pub": ""
+    },
+    "traditionalPublicKey": {
+        "kid": "key-0",
+        "kty": "EC",
+        "crv": "P-256",
+        "x": "",
+        "y": ""
+    }
+  }
+}
+```
+
+EXAMPLE 7: A ML-DSA-65/P-256 public key encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+    "algId": "id-MLDSA65-P256",
+    "pqPublicKey": {
+      "kid": "key-0",
+      "kty": "ML-DSA",
+      "alg": "ML-DSA-65",
+      "pub": ""
+    },
+    "traditionalPublicKey": {
+      "kid": "key-0",
+      "kty": "EC",
+      "crv": "P-256",
+      "x": "",
+      "y": ""
+    }
+  }
+}
+```
+
+EXAMPLE 8: A ML-DSA-87/P384 composite public key encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+  "algId": "id-MLDSA87-P384",
+  "pqPublicKey": {
+    "kid": "key-0",
+    "kty": "ML-DSA",
+    "alg": "ML-DSA-87",
+    "pub": ""
   },
   "traditionalPublicKey": {
-    "crv": "Ed25519",
-    "x": ".. x coordinate ..",
-    "kty": "OKP",
-    "kid": ".. key thumbprint .."
+      "kid": "key-0",
+      "kty": "EC",
+      "crv": "P-384",
+      "x": "",
+      "y": ""
   }
 }
 }
 ```
-EXAMPLE 9: A ML-DSA-65/EdDSA public key encoded encoded as a CompositeJWK for assertion method, and a ML-DSA-44/EdDSA public key encoded encoded as a CompositeJWK for authentication method in a controller document
+
+EXAMPLE 9: A ML-DSA-44/Ed25519 composite public key encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+    "algId": "id-MLDSA44-ED25519",
+    "pqPublicKey": {
+      "kid": "key-0",
+      "kty": "ML-DSA",
+      "alg": "ML-DSA-44",
+      "pub": ""
+    },
+    "traditionalPublicKey": {
+      "kid": "key-0",
+      "kty": "OKP", 
+      "crv": "Ed25519",
+      "x": ""
+    }
+  }
+}
+```
+
+EXAMPLE 10: A ML-DSA-65/Ed25519 public key encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+    "algId": "id-MLDSA65-ED25519",
+    "pqPublicKey": {
+      "kid": "key-0",
+      "kty": "ML-DSA",
+      "alg": "ML-DSA-65",
+      "pub": ""
+    },
+    "traditionalPublicKey": {
+      "kid": "key-0",
+      "kty": "OKP", 
+      "crv": "Ed25519",
+      "x": ""
+    }
+  }
+}
+```
+
+EXAMPLE 11: A ML-DSA-87/Ed448 composite public key encoded as a CompositeJWK
+```json
+{
+ "id": "https://example.com/issuer/123#key-0",
+ "type": "CompositeJWK",
+ "controller": "https://example.com/issuer/123",
+ "compositeJwk": {
+  "algId": "id-MLDSA87-ED448",
+  "pqPublicKey": {
+    "kid": "key-0",
+    "kty": "ML-DSA",
+    "alg": "ML-DSA-87",
+    "pub": ""
+  },
+  "traditionalPublicKey": {
+      "kid": "key-0",
+      "kty": "OKP", 
+      "crv": "Ed448",
+      "x": ""
+  }
+}
+}
+```
+
+EXAMPLE 12: A ML-DSA-65/Ed25519 public key encoded as a CompositeJWK for assertion method, and a ML-DSA-44/Ed25519 public key encoded as a CompositeJWK for authentication method in a controller document
 
 ```json
 {
   "@context": [
     "https://www.w3.org/ns/did/v1",
-    "https://w3id.org/security/multikey/v1"
+    "https://w3id.org/security/jwk/v1"
   ],
   "id": "did:example:123",
   "verificationMethod": [{
@@ -280,41 +405,41 @@ EXAMPLE 9: A ML-DSA-65/EdDSA public key encoded encoded as a CompositeJWK for as
     "type": "CompositeJWK",
     "controller": "did:example:123",
     "compositeJwk": {
-      "algId": "id-MLDSA65-Ed25519-SHA512",
+      "algId": "id-MLDSA65-Ed25519-xxx",
       "pqPublicKey": {
+        "kid": "key-0", (SERVE?)
         "kty": "ML-DSA",
         "alg": "ML-DSA-65",
-        "kid": ".. key thumbprint ..",
-        "pub": ".. encoded public key .."
+        "pub": ""
       },
       "traditionalPublicKey": {
+        "kid": "key-0", (SERVE?)
+        "kty": "OKP", 
         "crv": "Ed25519",
-        "x": ".. x coordinate ..",
-        "kty": "OKP",
-        "kid": ".. key thumbprint .."
+        "x": ""
       }
   }{
     "id": "did:example:123#key-1",
     "type": "CompositeJWK",
     "controller": "did:example:123",
     "compositeJwk": {
-      "algId": "id-MLDSA44-Ed25519-SHA512",
+      "algId": "id-MLDSA44-Ed25519-xxx",
       "pqPublicKey": {
+        "kid": "key-1", (SERVE?)
         "kty": "ML-DSA",
         "alg": "ML-DSA-44",
-        "kid": ".. key thumbprint ..",
-        "pub": ".. encoded public key .."
+        "pub": ""
       },
       "traditionalPublicKey": {
+        "kid": "key-1", (SERVE?)
+        "kty": "OKP", 
         "crv": "Ed25519",
-        "x": ".. x coordinate ..",
-        "kty": "OKP",
-        "kid": ".. key thumbprint .."
+        "x": ""
       }
   }],
   "assertionMethod": [
     "did:example:123#key-0"
-  ]
+  ],
   "authentication": [
     "did:example:123#key-1"
   ]
@@ -332,7 +457,25 @@ The type property of the proof MUST be DataIntegrityProof.
 
 The cryptosuite property of the proof MUST be experimental-ml-dsa-ecdsa-2025 or experimental-ml-dsa-eddsa-2025 based on the composite used.
 
+experimental-composite-mldsa-2025
+
+
 The value of the proofValue property of the proof MUST be produced as the concatenation of a ML-DSA-44/ECDSA signatures, of a ML-DSA-44/EdDSA signatures, of a  ML-DSA-65/ECDSA, and of a ML-DSA-65/EdDSA signatures produced according to using the algorithms specified in [section 3]. 
+
+EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof
+```json
+{
+  ...
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "experimental-composite-mldsa-2025",
+    "created": "2025-03-18T08:15:30Z",
+    "verificationMethod": "https://vc.example/issuers/4567#key-0",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "..."
+  }
+}
+```
 
 ## Algorithms
 
