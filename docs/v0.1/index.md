@@ -5,7 +5,7 @@ respec: >
   {
     "name": "pqt-hybrid-cryptosuites",
     "status": "CG-DRAFT",
-    "latest": "https://cybersecurity-links.github.io/pqt-hybrid-cryptosuites/spec/latest",
+    "latest": "https://cybersecurity-links.github.io/pqt-hybrid-cryptosuites/v0.1/",
     "repository": "https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites",
     "issues": "https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites/issues",
     "group": {
@@ -35,6 +35,13 @@ respec: >
         "authors": ["David Longley", "Manu Sporny"],
         "status": "CGDRAFT",
         "publisher": "JSON-LD Community Group"
+      }
+      " ": {
+        "title": "Verifiable Credential Data Integrity 1.0",
+        "href": "https://www.w3.org/TR/vc-data-integrity/",
+        "authors": ["Manu Sporny", "Ted Thibodeau Jr", "Ivan Herman", "Dave Longley", "Greg Bernstein"],
+        "status": "",
+        "publisher": "W3C"
       }
     }
   }
@@ -66,13 +73,13 @@ respec: >
 
 ## Introduction
 
-This specification defines several cryptographic suites for the purpose of creating, and verifying proofs for Post-Quantum/Traditional (PQ/T) hybrid signatures in conformance with the Data Integrity [[VC-DATA-INTEGRITY]](https://w3c.github.io/vc-data-integrity/) specification.
+This specification defines several cryptographic suites for the purpose of creating, and verifying proofs for Post-Quantum/Traditional (PQ/T) hybrid signatures in conformance with the Data Integrity [[VC-DATA-INTEGRITY]] specification.
 
 This specification uses either the RDF Dataset Canonicalization Algorithm [RDF-CANON](https://www.w3.org/TR/rdf-canon/) or the JSON Canonicalization Scheme [RFC8785](https://www.rfc-editor.org/rfc/rfc8785) to transform the input document into its canonical form. It uses SHA-256 and SHA-512 [RFC6234](https://datatracker.ietf.org/doc/html/rfc6234) as message digest algorithms and ML-DSA [FIPS204](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf), ECDSA and EdDSA [FIPS-186-5](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf) as component signature algorithms to create PQ/T hybrid signatures.
 
 ### Terminology
 
-Terminology used throughout this document is defined in the <a href="https://www.w3.org/TR/vc-data-integrity/#terminology">Terminology</a> section of the <a href="https://www.w3.org/TR/vc-data-integrity"> Verifiable Credential Data Integrity 1.0</a> specification.
+Terminology used throughout this document is defined in the <a href="https://www.w3.org/TR/vc-data-integrity/#terminology">Terminology</a> section of the [[VC-DATA-INTEGRITY]] specification.
 
 ## Data Model
 
@@ -80,7 +87,7 @@ The following sections outline the data model that is used by this specification
 
 ### Verification Methods
 
-This cryptographic suite is used to verify Data Integrity Proofs [VC-DATA-INTEGRITY](https://w3c.github.io/vc-data-integrity/) produced using PQ/T hybrid key material. 
+This cryptographic suite is used to verify Data Integrity Proofs [[VC-DATA-INTEGRITY]] produced using PQ/T hybrid key material. 
 
 [//]: # (Lossless cryptographic key transformation processes that result in equivalent cryptographic key material MAY be used for the processing of digital signatures.)
 
