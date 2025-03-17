@@ -84,8 +84,7 @@ This is a set of examples of public keys encoded as a **JsonWebKey**, the exampl
 [//]: # (JWK with Ed RFC 8037 - OKP Octet Key Pair - crv Ed25519, Ed448)
 [//]: # (JWK structure for ML-DSA - https://datatracker.ietf.org/doc/html/draft-ietf-cose-dilithium-02)
 
-EXAMPLE 1a: A P-256 public key encoded as a JsonWebKey 
-```json
+<pre class="example nohighlight" title="A P-256 public key encoded as a JsonWebKey">
 {
   "id": "https://example.com/issuer/123#key-0",
   "type": "JsonWebKey",
@@ -98,7 +97,7 @@ EXAMPLE 1a: A P-256 public key encoded as a JsonWebKey
       "y": "x_FEzRu9m36HLN_tue659LNpXW6pCyStikYjKIWI5a0"
   }
 }
-```
+</pre>
 
 EXAMPLE 1b: A P-384 public key encoded as a JsonWebKey 
 ```json
