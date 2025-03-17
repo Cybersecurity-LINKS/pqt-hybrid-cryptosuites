@@ -48,7 +48,7 @@ respec: >
         "authors": ["D. Eastlake", "T. Hansen"],
         "publisher": "IETF"
       }, 
-      "FIPS204": {
+      "FIPS-204": {
         "title": "Module-Lattice-Based Digital Signature Standard",
         "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf",
         "publisher": "NIST"
@@ -65,7 +65,7 @@ respec: >
         "publisher": "IETF"
       },
       "RDF-CANON": {
-        "title": "https://www.w3.org/TR/rdf-canon/",
+        "title": "RDF Dataset Canonicalization",
         "href": "https://www.w3.org/TR/rdf-canon/",
         "authors": ["Dave Longley"],
         "publisher": "W3C"
@@ -102,7 +102,7 @@ respec: >
 
 This specification defines several cryptographic suites for the purpose of creating, and verifying proofs for Post-Quantum/Traditional (PQ/T) hybrid signatures in conformance with the Data Integrity [[VC-DATA-INTEGRITY]] specification.
 
-This specification uses either the RDF Dataset Canonicalization Algorithm [[RDF-CANON]] or the JSON Canonicalization Scheme [[RFC8785]] to transform the input document into its canonical form. It uses SHA-256 and SHA-512 [[RFC6234]] as message digest algorithms and ML-DSA [[FIPS204]], ECDSA and EdDSA [[FIPS-186-5]] as component signature algorithms to create PQ/T hybrid signatures.
+This specification uses either the RDF Dataset Canonicalization Algorithm [[RDF-CANON]] or the JSON Canonicalization Scheme [[RFC8785]] to transform the input document into its canonical form. It uses SHA-256 and SHA-512 [[RFC6234]] as message digest algorithms and ML-DSA [[FIPS-204]], ECDSA and EdDSA [[FIPS-186-5]] as component signature algorithms to create PQ/T hybrid signatures.
 
 ### Terminology
 
@@ -435,7 +435,7 @@ The `type` property of the proof MUST be `DataIntegrityProof`.
 
 The `cryptosuite` property of the proof MUST be `experimental-ml-dsa-ecdsa-2025` or `experimental-ml-dsa-eddsa-2025` based on the composite used.
 
-The value of the `proofValue` property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), encoded according to [[FIPS204]] and ECDSA or EdDSA [[FIPS-186-5]], then encoded using the base-64-url-nopad header and alphabet as described in the [Multibase section](https://www.w3.org/TR/vc-data-integrity/#multibase-0) of [[VC-DATA-INTEGRITY]].
+The value of the `proofValue` property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), encoded according to [[FIPS-204]] and ECDSA or EdDSA [[FIPS-186-5]], then encoded using the base-64-url-nopad header and alphabet as described in the [Multibase section](https://www.w3.org/TR/vc-data-integrity/#multibase-0) of [[VC-DATA-INTEGRITY]].
 
 EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof
 <pre class="example nohighlight" title="A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof">
