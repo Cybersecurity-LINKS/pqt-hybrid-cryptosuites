@@ -1,13 +1,13 @@
 ---
 layout: respec
-title: Post-Quantum/Traditional hybrid cryptosuite v0.1
+title: Post-Quantum/Traditional hybrid cryptosuites v0.1
 respec: >
   {
-    "name": "pqt-hybrid-cryptosuite",
+    "name": "pqt-hybrid-cryptosuites",
     "status": "CG-DRAFT",
-    "latest": "https://cybersecurity-links.github.io/pqt-cryptosuites/spec/latest",
-    "repository": "https://github.com/Cybersecurity-LINKS/pqt-cryptosuites",
-    "issues": "https://github.com/Cybersecurity-LINKS/pqt-cryptosuites/issues",
+    "latest": "https://cybersecurity-links.github.io/pqt-hybrid-cryptosuites/spec/latest",
+    "repository": "https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites",
+    "issues": "https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites/issues",
     "group": {
       "name": "Credentials Community Group",
       "url": "https://www.w3.org/community/credentials/",
@@ -49,10 +49,12 @@ respec: >
 <section id="sotd">
   <p>
     This specification was published by the Cybersecurity Research Group @ LINKS Foundation. 
-  </p><p>  
+  </p>
+  <p>  
     This specification is experimental, do not use it in any production setting. 
-  </p><p>  
-    <a href="https://github.com/Cybersecurity-LINKS/pq-cryptosuites/issues"> GitHub Issues </a> are preferred for discussion of this specification.
+  </p>
+  <p>  
+    <a href="https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites/issues"> GitHub Issues </a> are preferred for discussion of this specification.
   </p>
 </section>
 
@@ -407,7 +409,7 @@ EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as 
   ...
   "proof": {
     "type": "DataIntegrityProof",
-    "cryptosuite": "experimental-composite-mldsa-2025",
+    "cryptosuite": "experimental-ml-dsa-eddsa-2025",
     "created": "2025-03-18T08:15:30Z",
     "verificationMethod": "https://vc.example/issuers/4567#key-0",
     "proofPurpose": "assertionMethod",
