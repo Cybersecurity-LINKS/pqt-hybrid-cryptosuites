@@ -331,7 +331,7 @@ A composite public key encoded as a CompositeJWK contains a PQ public key and a 
 }
 </pre>
 
-<pre class="example nohighlight" title="EXAMPLE 12: A ML-DSA-65/Ed25519 public key encoded as a CompositeJWK for assertion method, and a ML-DSA-44/Ed25519 public key encoded as a CompositeJWK for authentication method in a controller document">
+<pre class="example nohighlight" title="A ML-DSA-65/Ed25519 public key encoded as a CompositeJWK for assertion method, and a ML-DSA-44/Ed25519 public key encoded as a CompositeJWK for authentication method in a controller document">
 {
   "@context": [
     "https://www.w3.org/ns/did/v1",
@@ -391,16 +391,16 @@ This section details the proof representation formats that are defined by this s
 #### DataIntegrityProof
 A proof contains the attributes specified in the [Proofs section](https://www.w3.org/TR/vc-data-integrity/#proofs) of [VC-DATA-INTEGRITY](https://www.w3.org/TR/vc-data-integrity/) with the following restrictions.
 
-The **type** property of the proof MUST be **DataIntegrityProof**.
+The `type` property of the proof MUST be `DataIntegrityProof`.
 
-The **cryptosuite** property of the proof MUST be **experimental-ml-dsa-ecdsa-2025** or **experimental-ml-dsa-eddsa-2025** based on the composite used.
+The `cryptosuite` property of the proof MUST be `experimental-ml-dsa-ecdsa-2025` or `experimental-ml-dsa-eddsa-2025` based on the composite used.
 
-The value of the **proofValue** property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), 
+The value of the `proofValue` property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), 
 
 encoded according to [FIPS204](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf) and ECDSA or EdDSA [FIPS-186-5](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf), then encoded using the base-64-url-nopad header and alphabet as described in the [Multibase section](https://www.w3.org/TR/vc-data-integrity/#multibase-0) of [VC-DATA-INTEGRITY](https://www.w3.org/TR/vc-data-integrity/).
 
 EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof
-```json
+<pre class="example nohighlight" title="A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof">
 {
   ...
   "proof": {
@@ -412,7 +412,7 @@ EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as 
     "proofValue": "..."
   }
 }
-```
+</pre>
 
 ## Algorithms
 
