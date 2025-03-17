@@ -40,42 +40,34 @@ respec: >
         "title": "Verifiable Credential Data Integrity 1.0",
         "href": "https://www.w3.org/TR/vc-data-integrity/",
         "authors": ["Manu Sporny", "Ted Thibodeau Jr", "Ivan Herman", "Dave Longley", "Greg Bernstein"],
-        "status": "",
         "publisher": "W3C"
       },
       "RFC6234": {
         "title": "US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)",
         "href": "https://datatracker.ietf.org/doc/html/rfc6234",
         "authors": ["D. Eastlake", "T. Hansen"],
-        "status": "",
         "publisher": "IETF"
       }, 
       "FIPS204": {
         "title": "Module-Lattice-Based Digital Signature Standard",
         "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf",
-        "authors": ["",""],
-        "status": "",
         "publisher": "NIST"
       }, 
       "FIPS-186-5": {
         "title": "Digital Signature Standard (DSS)",
         "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf",
-        "authors": ["",""],
-        "status": "",
         "publisher": "NIST"
       }, 
       "RFC8785": {
         "title": "JSON Canonicalization Scheme (JCS)",
         "href": "https://www.rfc-editor.org/rfc/rfc8785",
         "authors": ["A. Rundgren","B. Jordan", "S. Erdtman"],
-        "status": "",
         "publisher": "IETF"
       },
       "RDF-CANON": {
         "title": "https://www.w3.org/TR/rdf-canon/",
         "href": "https://www.w3.org/TR/rdf-canon/",
         "authors": ["Dave Longley"],
-        "status": "",
         "publisher": "W3C"
       }
     }
