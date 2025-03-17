@@ -462,6 +462,7 @@ This section is non-normative.
 
 Before reading this section, readers are urged to familiarize themselves with general security advice provided in the [Security Considerations section of the Data Integrity specification](https://www.w3.org/TR/vc-data-integrity/#security-considerations).
 
+The following section describes security considerations that developers implementing this specification should be aware of in order to avoid violating security assumptions.
 
 ## Privacy Considerations
 
