@@ -17,10 +17,10 @@ respec: >
     "editors": [
       {
         "name": "Andrea Vesco",
-        "url": "www.linkedin.com/in/avesco",
+        "url": "https://www.linkedin.com/in/avesco",
         "company": "LINKS Foundation",
         "companyURL": ""
-      }
+      },
       {
         "name": "Alessio Claudio",
         "url": "https://www.linkedin.com/in/alessio-claudio-ab260923b",
