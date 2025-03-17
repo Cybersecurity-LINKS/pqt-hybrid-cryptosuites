@@ -121,8 +121,8 @@ EXAMPLE 1a: A P-256 public key encoded as a JsonWebKey
       "kid": "key-0",
       "kty": "EC",
       "crv": "P-256",
-      "x": "",
-      "y": ""
+      "x": "f83OJ3D2xF1Bg8vub9tLe1gHMzV76e8Tus9uPHvRVEU",
+      "y": "x_FEzRu9m36HLN_tue659LNpXW6pCyStikYjKIWI5a0"
   }
 }
 ```
@@ -153,7 +153,7 @@ EXAMPLE 2a: An Ed25519 public key encoded as a JsonWebKey
       "kid": "key-0",
       "kty": "OKP", 
       "crv": "Ed25519",
-      "x": ""
+      "x": "0X-QEhA0qbmbRTtoupKNnmE0u_H_1XK6V3KORTwP990"
   }
 }
 ```
@@ -294,7 +294,7 @@ EXAMPLE 7: A ML-DSA-65/P-256 public key encoded as a CompositeJWK
 }
 ```
 
-EXAMPLE 8: A ML-DSA-87/P384 composite public key encoded as a CompositeJWK
+EXAMPLE 8: A ML-DSA-87/P-384 composite public key encoded as a CompositeJWK
 ```json
 {
  "id": "https://example.com/issuer/123#key-0",
