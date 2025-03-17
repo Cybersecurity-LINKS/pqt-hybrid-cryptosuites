@@ -48,7 +48,11 @@ respec: >
 
 <section id="sotd">
   <p>
-    This specification was published by the Cybersecurity Research Group @ LINKS Foundation. This specification is experimental, do not use it in any production setting. <a href="https://github.com/Cybersecurity-LINKS/pq-cryptosuites/issues"> GitHub Issues </a> are preferred for discussion of this specification.
+    This specification was published by the Cybersecurity Research Group @ LINKS Foundation. 
+  </p><p>  
+    This specification is experimental, do not use it in any production setting. 
+  </p><p>  
+    <a href="https://github.com/Cybersecurity-LINKS/pq-cryptosuites/issues"> GitHub Issues </a> are preferred for discussion of this specification.
   </p>
 </section>
 
@@ -78,7 +82,7 @@ This cryptographic suite is used to verify Data Integrity Proofs [VC-DATA-INTEGR
 
 [//]: # (Lossless cryptographic key transformation processes that result in equivalent cryptographic key material MAY be used for the processing of digital signatures.)
 
-This is a set of examples of public keys encoded as a **JsonWebKey**, the examples are instrumental to introduce composite public keys encoded as **CompositeJwk** 
+This is a set of examples of public keys encoded as a `JsonWebKey`, the examples are instrumental to introduce composite public keys encoded as `CompositeJwk` 
 
 [//]: # (JWK RFC 7517 - crv P-256, P-384, P-521)
 [//]: # (JWK with Ed RFC 8037 - OKP Octet Key Pair - crv Ed25519, Ed448)
@@ -188,7 +192,7 @@ This is a set of examples of public keys encoded as a **JsonWebKey**, the exampl
 [//]: # (pure composite and hashed composite)
 
 #### CompositeJWK
-A composite public key encoded as a CompositeJWK contains a PQ public key and a traditional public key both encoded as JsonWebKey. In addition, the CompositeJWK contains a string **algId** which represents the name of the algorithms used to generate the PQ/T hybrid data integrity proof (**TBD:** *and of the hash algorithm used to pre-hash the document*).
+A composite public key encoded as a `CompositeJWK` contains a PQ public key and a traditional public key both encoded as `JsonWebKey`. In addition, the `CompositeJWK` contains a string `algId` which represents the name of the algorithms used to generate the PQ/T hybrid data integrity proof (**TBD:** *and of the hash algorithm used to pre-hash the document*).
 
 <pre class="example nohighlight" title="A ML-DSA-44/P-256 composite public key encoded as a CompositeJWK">
 {
@@ -395,9 +399,7 @@ The `type` property of the proof MUST be `DataIntegrityProof`.
 
 The `cryptosuite` property of the proof MUST be `experimental-ml-dsa-ecdsa-2025` or `experimental-ml-dsa-eddsa-2025` based on the composite used.
 
-The value of the `proofValue` property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), 
-
-encoded according to [FIPS204](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf) and ECDSA or EdDSA [FIPS-186-5](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf), then encoded using the base-64-url-nopad header and alphabet as described in the [Multibase section](https://www.w3.org/TR/vc-data-integrity/#multibase-0) of [VC-DATA-INTEGRITY](https://www.w3.org/TR/vc-data-integrity/).
+The value of the `proofValue` property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), encoded according to [FIPS204](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf) and ECDSA or EdDSA [FIPS-186-5](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf), then encoded using the base-64-url-nopad header and alphabet as described in the [Multibase section](https://www.w3.org/TR/vc-data-integrity/#multibase-0) of [VC-DATA-INTEGRITY](https://www.w3.org/TR/vc-data-integrity/).
 
 EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof
 <pre class="example nohighlight" title="A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof">
