@@ -35,11 +35,46 @@ respec: >
         "authors": ["David Longley", "Manu Sporny"],
         "status": "CGDRAFT",
         "publisher": "JSON-LD Community Group"
-      }
-      " ": {
+      },
+      "VC-DATA-INTEGRITY": {
         "title": "Verifiable Credential Data Integrity 1.0",
         "href": "https://www.w3.org/TR/vc-data-integrity/",
         "authors": ["Manu Sporny", "Ted Thibodeau Jr", "Ivan Herman", "Dave Longley", "Greg Bernstein"],
+        "status": "",
+        "publisher": "W3C"
+      },
+      "RFC6234": {
+        "title": "US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)",
+        "href": "https://datatracker.ietf.org/doc/html/rfc6234",
+        "authors": ["D. Eastlake", "T. Hansen"],
+        "status": "",
+        "publisher": "IETF"
+      }, 
+      "FIPS204": {
+        "title": "Module-Lattice-Based Digital Signature Standard",
+        "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf",
+        "authors": ["",""],
+        "status": "",
+        "publisher": "NIST"
+      }, 
+      "FIPS-186-5": {
+        "title": "Digital Signature Standard (DSS)",
+        "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf",
+        "authors": ["",""],
+        "status": "",
+        "publisher": "NIST"
+      }, 
+      "RFC8785": {
+        "title": "JSON Canonicalization Scheme (JCS)",
+        "href": "https://www.rfc-editor.org/rfc/rfc8785",
+        "authors": ["A. Rundgren","B. Jordan", "S. Erdtman"],
+        "status": "",
+        "publisher": "IETF"
+      },
+      "RDF-CANON": {
+        "title": "https://www.w3.org/TR/rdf-canon/",
+        "href": "https://www.w3.org/TR/rdf-canon/",
+        "authors": ["Dave Longley"],
         "status": "",
         "publisher": "W3C"
       }
@@ -75,7 +110,7 @@ respec: >
 
 This specification defines several cryptographic suites for the purpose of creating, and verifying proofs for Post-Quantum/Traditional (PQ/T) hybrid signatures in conformance with the Data Integrity [[VC-DATA-INTEGRITY]] specification.
 
-This specification uses either the RDF Dataset Canonicalization Algorithm [RDF-CANON](https://www.w3.org/TR/rdf-canon/) or the JSON Canonicalization Scheme [RFC8785](https://www.rfc-editor.org/rfc/rfc8785) to transform the input document into its canonical form. It uses SHA-256 and SHA-512 [RFC6234](https://datatracker.ietf.org/doc/html/rfc6234) as message digest algorithms and ML-DSA [FIPS204](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf), ECDSA and EdDSA [FIPS-186-5](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf) as component signature algorithms to create PQ/T hybrid signatures.
+This specification uses either the RDF Dataset Canonicalization Algorithm [[RDF-CANON]] or the JSON Canonicalization Scheme [[RFC8785]] to transform the input document into its canonical form. It uses SHA-256 and SHA-512 [[RFC6234]] as message digest algorithms and ML-DSA [[FIPS204]], ECDSA and EdDSA [[FIPS-186-5]] as component signature algorithms to create PQ/T hybrid signatures.
 
 ### Terminology
 
@@ -408,7 +443,7 @@ The `type` property of the proof MUST be `DataIntegrityProof`.
 
 The `cryptosuite` property of the proof MUST be `experimental-ml-dsa-ecdsa-2025` or `experimental-ml-dsa-eddsa-2025` based on the composite used.
 
-The value of the `proofValue` property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), encoded according to [FIPS204](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf) and ECDSA or EdDSA [FIPS-186-5](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf), then encoded using the base-64-url-nopad header and alphabet as described in the [Multibase section](https://www.w3.org/TR/vc-data-integrity/#multibase-0) of [VC-DATA-INTEGRITY](https://www.w3.org/TR/vc-data-integrity/).
+The value of the `proofValue` property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), encoded according to [[FIPS204]] and ECDSA or EdDSA [[FIPS-186-5]], then encoded using the base-64-url-nopad header and alphabet as described in the [Multibase section](https://www.w3.org/TR/vc-data-integrity/#multibase-0) of [[VC-DATA-INTEGRITY]].
 
 EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof
 <pre class="example nohighlight" title="A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof">
