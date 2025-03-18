@@ -74,6 +74,8 @@ respec: >
   }
 ---
 
+[//]: # (add month/day values to references)
+
 <section id="abstract">
   <p>
    This specification describes several Data Integrity Cryptosuites for use when generating a digital signature using Post-Quantum/Traditional (PQ/T) hybrid digital signature algorithms.
@@ -118,7 +120,7 @@ This cryptographic suite is used to verify Data Integrity Proofs [[VC-DATA-INTEG
 
 [//]: # (Lossless cryptographic key transformation processes that result in equivalent cryptographic key material MAY be used for the processing of digital signatures.)
 
-This is a set of examples of public keys encoded as a `JsonWebKey`, the examples are instrumental to introduce composite public keys encoded as `CompositeJwk` 
+This is a set of examples of public keys encoded as a `JsonWebKey`, examples are instrumental in introducing composite public keys encoded as `CompositeJwk` 
 
 [//]: # (JWK RFC 7517 - crv P-256, P-384, P-521)
 [//]: # (JWK with Ed RFC 8037 - OKP Octet Key Pair - crv Ed25519, Ed448)
