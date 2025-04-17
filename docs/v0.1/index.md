@@ -230,12 +230,12 @@ This is a set of examples of public keys encoded as a `JsonWebKey`, examples are
 [//]: # (pure composite and hashed composite)
 
 #### CompositeJWK
-A composite public key encoded as a `CompositeJWK` contains a PQ public key and a traditional public key both encoded as `JsonWebKey`. In addition, the `CompositeJWK` contains a string `algId` which represents the name of the algorithms used to generate the PQ/T hybrid data integrity proof (*TBD: and of the hash algorithm used to pre-hash the document*).
+A composite public key encoded as a `CompositeJWK` contains a PQ public key and a traditional public key both encoded as `JsonWebKey`. In addition, the `CompositeJWK` contains a string `algId` which represents the name of the algorithms used to generate the PQ/T hybrid data integrity proof.
 
 <pre class="example nohighlight" title="A ML-DSA-44/P-256 composite public key encoded as a CompositeJWK">
 {
  "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
+ "type": "CompositeJsonWebKey",
  "controller": "https://example.com/issuer/123",
  "compositeJwk": {
     "algId": "id-MLDSA44-P256", 
@@ -259,7 +259,7 @@ A composite public key encoded as a `CompositeJWK` contains a PQ public key and 
 <pre class="example nohighlight" title="A ML-DSA-65/P-256 public key encoded as a CompositeJWK">
 {
  "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
+ "type": "CompositeJsonWebKey",
  "controller": "https://example.com/issuer/123",
  "compositeJwk": {
     "algId": "id-MLDSA65-P256",
@@ -283,7 +283,7 @@ A composite public key encoded as a `CompositeJWK` contains a PQ public key and 
 <pre class="example nohighlight" title="A ML-DSA-87/P-384 composite public key encoded as a CompositeJWK">
 {
  "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
+ "type": "CompositeJsonWebKey",
  "controller": "https://example.com/issuer/123",
  "compositeJwk": {
   "algId": "id-MLDSA87-P384",
@@ -307,7 +307,7 @@ A composite public key encoded as a `CompositeJWK` contains a PQ public key and 
 <pre class="example nohighlight" title="A ML-DSA-44/Ed25519 composite public key encoded as a CompositeJWK">
 {
  "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
+ "type": "CompositeJsonWebKey",
  "controller": "https://example.com/issuer/123",
  "compositeJwk": {
     "algId": "id-MLDSA44-ED25519",
@@ -330,7 +330,7 @@ A composite public key encoded as a `CompositeJWK` contains a PQ public key and 
 <pre class="example nohighlight" title="A ML-DSA-65/Ed25519 public key encoded as a CompositeJWK">
 {
  "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
+ "type": "CompositeJsonWebKey",
  "controller": "https://example.com/issuer/123",
  "compositeJwk": {
     "algId": "id-MLDSA65-ED25519",
@@ -353,7 +353,7 @@ A composite public key encoded as a `CompositeJWK` contains a PQ public key and 
 <pre class="example nohighlight" title="A ML-DSA-87/Ed448 composite public key encoded as a CompositeJWK">
 {
  "id": "https://example.com/issuer/123#key-0",
- "type": "CompositeJWK",
+ "type": "CompositeJsonWebKey",
  "controller": "https://example.com/issuer/123",
  "compositeJwk": {
   "algId": "id-MLDSA87-ED448",
@@ -382,7 +382,7 @@ A composite public key encoded as a `CompositeJWK` contains a PQ public key and 
   "id": "did:example:123",
   "verificationMethod": [{
     "id": "did:example:123#key-0",
-    "type": "CompositeJWK",
+    "type": "CompositeJsonWebKey",
     "controller": "did:example:123",
     "compositeJwk": {
       "algId": "id-MLDSA65-Ed25519",
@@ -400,7 +400,7 @@ A composite public key encoded as a `CompositeJWK` contains a PQ public key and 
       }
   }{
     "id": "did:example:123#key-1",
-    "type": "CompositeJWK",
+    "type": "CompositeJsonWebKey",
     "controller": "did:example:123",
     "compositeJwk": {
       "algId": "id-MLDSA44-Ed25519",
