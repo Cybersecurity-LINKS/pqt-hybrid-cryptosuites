@@ -1,81 +1,188 @@
----
-layout: respec
-title: Post-Quantum/Traditional hybrid cryptosuites v0.1
-respec: >
-  {
-    "name": "pqt-hybrid-cryptosuites",
-    "status": "CG-DRAFT",
-    "latest": "https://cybersecurity-links.github.io/pqt-hybrid-cryptosuites/v0.1/",
-    "repository": "https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites",
-    "issues": "https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites/issues",
-    "group": {
-      "name": "Credentials Community Group",
-      "url": "https://www.w3.org/community/credentials/",
-      "list": "public-credentials",
-      "patentUri": "https://www.w3.org/community/about/agreements/cla/"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Post-Quantum/Traditional hybrid cryptosuites v0.1</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Post-Quantum/Traditional hybrid cryptosuites v0.1 | Your Specification Title</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Post-Quantum/Traditional hybrid cryptosuites v0.1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Your Specification Description" />
+<meta property="og:description" content="Your Specification Description" />
+<link rel="canonical" href="http://localhost:4000/v0.1/" />
+<meta property="og:url" content="http://localhost:4000/v0.1/" />
+<meta property="og:site_name" content="Your Specification Title" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Post-Quantum/Traditional hybrid cryptosuites v0.1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Your Specification Description","headline":"Post-Quantum/Traditional hybrid cryptosuites v0.1","url":"http://localhost:4000/v0.1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+    ></script>
+    <script type="text/javascript" class="remove">
+
+      const respecPagesJson = JSON.parse(`
+        {
+  "name": "pqt-hybrid-cryptosuites",
+  "status": "CG-DRAFT",
+  "latest": "https://cybersecurity-links.github.io/pqt-hybrid-cryptosuites/v0.1/",
+  "repository": "https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites",
+  "issues": "https://github.com/Cybersecurity-LINKS/pqt-hybrid-cryptosuites/issues",
+  "group": {
+    "name": "Credentials Community Group",
+    "url": "https://www.w3.org/community/credentials/",
+    "list": "public-credentials",
+    "patentUri": "https://www.w3.org/community/about/agreements/cla/"
+  },
+  "editors": [
+    {
+      "name": "Andrea Vesco",
+      "url": "https://www.linkedin.com/in/avesco",
+      "company": "LINKS Foundation",
+      "companyURL": ""
     },
-    "editors": [
-      {
-        "name": "Andrea Vesco",
-        "url": "https://www.linkedin.com/in/avesco",
-        "company": "LINKS Foundation",
-        "companyURL": ""
-      },
-      {
-        "name": "Alessio Claudio",
-        "url": "https://www.linkedin.com/in/alessio-claudio-ab260923b",
-        "company": "LINKS Foundation",
-        "companyURL": ""
-      }
-    ],
-    "bibliography": {
-      "RDF-DATASET-NORMALIZATION": {
-        "title": "RDF Dataset Normalization 1.0",
-        "href": "http://json-ld.github.io/normalization/spec/",
-        "authors": ["David Longley", "Manu Sporny"],
-        "status": "CGDRAFT",
-        "publisher": "JSON-LD Community Group"
-      },
-      "VC-DATA-INTEGRITY": {
-        "title": "Verifiable Credential Data Integrity 1.0",
-        "href": "https://www.w3.org/TR/vc-data-integrity/",
-        "authors": ["Manu Sporny", "Ted Thibodeau Jr", "Ivan Herman", "Dave Longley", "Greg Bernstein"],
-        "publisher": "W3C"
-      },
-      "RFC6234": {
-        "title": "US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)",
-        "href": "https://datatracker.ietf.org/doc/html/rfc6234",
-        "authors": ["D. Eastlake", "T. Hansen"],
-        "publisher": "IETF"
-      }, 
-      "FIPS-204": {
-        "title": "Module-Lattice-Based Digital Signature Standard",
-        "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf",
-        "publisher": "NIST"
-      }, 
-      "FIPS-186-5": {
-        "title": "Digital Signature Standard (DSS)",
-        "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf",
-        "publisher": "NIST"
-      }, 
-      "RFC8785": {
-        "title": "JSON Canonicalization Scheme (JCS)",
-        "href": "https://www.rfc-editor.org/rfc/rfc8785",
-        "authors": ["A. Rundgren","B. Jordan", "S. Erdtman"],
-        "publisher": "IETF"
-      },
-      "RDF-CANON": {
-        "title": "RDF Dataset Canonicalization",
-        "href": "https://www.w3.org/TR/rdf-canon/",
-        "authors": ["Dave Longley"],
-        "publisher": "W3C"
-      }
+    {
+      "name": "Alessio Claudio",
+      "url": "https://www.linkedin.com/in/alessio-claudio-ab260923b",
+      "company": "LINKS Foundation",
+      "companyURL": ""
+    }
+  ],
+  "bibliography": {
+    "RDF-DATASET-NORMALIZATION": {
+      "title": "RDF Dataset Normalization 1.0",
+      "href": "http://json-ld.github.io/normalization/spec/",
+      "authors": ["David Longley", "Manu Sporny"],
+      "status": "CGDRAFT",
+      "publisher": "JSON-LD Community Group"
+    },
+    "VC-DATA-INTEGRITY": {
+      "title": "Verifiable Credential Data Integrity 1.0",
+      "href": "https://www.w3.org/TR/vc-data-integrity/",
+      "authors": ["Manu Sporny", "Ted Thibodeau Jr", "Ivan Herman", "Dave Longley", "Greg Bernstein"],
+      "publisher": "W3C"
+    },
+    "RFC6234": {
+      "title": "US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)",
+      "href": "https://datatracker.ietf.org/doc/html/rfc6234",
+      "authors": ["D. Eastlake", "T. Hansen"],
+      "publisher": "IETF"
+    }, 
+    "FIPS-204": {
+      "title": "Module-Lattice-Based Digital Signature Standard",
+      "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf",
+      "publisher": "NIST"
+    }, 
+    "FIPS-186-5": {
+      "title": "Digital Signature Standard (DSS)",
+      "href": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf",
+      "publisher": "NIST"
+    }, 
+    "RFC8785": {
+      "title": "JSON Canonicalization Scheme (JCS)",
+      "href": "https://www.rfc-editor.org/rfc/rfc8785",
+      "authors": ["A. Rundgren","B. Jordan", "S. Erdtman"],
+      "publisher": "IETF"
+    },
+    "RDF-CANON": {
+      "title": "RDF Dataset Canonicalization",
+      "href": "https://www.w3.org/TR/rdf-canon/",
+      "authors": ["Dave Longley"],
+      "publisher": "W3C"
     }
   }
----
+}
 
-[//]: # (add month/day values to references)
+        `);
 
+      var respecConfig = {
+        // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: respecPagesJson.status,
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: respecPagesJson.name,
+
+        // if you wish the publication date to be other than today, set this
+        // publishDate:  "2009-08-06",
+
+        // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+        // and its maturity status
+        // previousPublishDate:  "1977-03-15",
+        // previousMaturity:  "WD",
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: respecPagesJson.latest,
+
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
+
+        // if you want to have extra CSS, append them to this list
+        // it is recommended that the respec.css stylesheet be kept
+        //extraCSS:             ["spec.css", "prettify.css"],
+
+        // editors, add as many as you like
+        // only "name" is required
+        editors: respecPagesJson.editors,
+    
+
+        // extend the bibliography entries
+        //localBiblio: webpayments.localBiblio,
+
+        wg: respecPagesJson.group.name,
+        // URI of the public WG page
+        wgURI: respecPagesJson.group.url,
+        // name (with the @w3c.org) of the public mailing to which comments are due
+        wgPublicList: respecPagesJson.group.list,
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        wgPatentURI: respecPagesJson.group.patentUri,
+
+        otherLinks: [
+          {
+            key: "Source Control",
+            data: [
+              {
+                value: respecPagesJson.repository,
+                href: respecPagesJson.repository,
+              },
+            ],
+          },
+          {
+            key: "Issue Tracker",
+            data: [
+              {
+                value: respecPagesJson.issues,
+                href: respecPagesJson.issues,
+              },
+            ],
+          },
+        ],
+
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI:  "",
+        maxTocLevel: 4,
+        /*preProcess: [ webpayments.preProcess ],
+        alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
+        */
+        localBiblio: respecPagesJson.bibliography,
+      };
+    </script>
+  </head>
+  <body>
+    
 <section id="abstract">
   <p>
    This specification describes several Data Integrity Cryptosuites for use when generating a digital signature using Post-Quantum/Traditional (PQ/T) hybrid digital signature algorithms.
@@ -100,31 +207,25 @@ respec: >
 }
 </style>
 
-## Introduction
+<h2 id="introduction">Introduction</h2>
 
-This specification defines several cryptographic suites for the purpose of creating, and verifying proofs for Post-Quantum/Traditional (PQ/T) hybrid signatures in conformance with the Data Integrity [[VC-DATA-INTEGRITY]] specification.
+<p>This specification defines several cryptographic suites for the purpose of creating, and verifying proofs for Post-Quantum/Traditional (PQ/T) hybrid signatures in conformance with the Data Integrity [[VC-DATA-INTEGRITY]] specification.</p>
 
-This specification uses either the RDF Dataset Canonicalization Algorithm [[RDF-CANON]] or the JSON Canonicalization Scheme [[RFC8785]] to transform the input document into its canonical form. It uses SHA-256 and SHA-512 [[RFC6234]] as message digest algorithms and ML-DSA [[FIPS-204]], ECDSA and EdDSA [[FIPS-186-5]] as component signature algorithms to create PQ/T hybrid signatures.
+<p>This specification uses either the RDF Dataset Canonicalization Algorithm [[RDF-CANON]] or the JSON Canonicalization Scheme [[RFC8785]] to transform the input document into its canonical form. It uses SHA-256 and SHA-512 [[RFC6234]] as message digest algorithms and ML-DSA [[FIPS-204]], ECDSA and EdDSA [[FIPS-186-5]] as component signature algorithms to create PQ/T hybrid signatures.</p>
 
-### Terminology
+<h3 id="terminology">Terminology</h3>
 
-Terminology used throughout this document is defined in the <a href="https://www.w3.org/TR/vc-data-integrity/#terminology">Terminology</a> section of the [[VC-DATA-INTEGRITY]] specification.
+<p>Terminology used throughout this document is defined in the <a href="https://www.w3.org/TR/vc-data-integrity/#terminology">Terminology</a> section of the [[VC-DATA-INTEGRITY]] specification.</p>
 
-## Data Model
+<h2 id="data-model">Data Model</h2>
 
-The following sections outline the data model that is used by this specification to express verification methods, such as cryptographic composite public keys, and PQ/T hybrid data integrity proofs, such as PQ/T hybrid digital signatures.
+<p>The following sections outline the data model that is used by this specification to express verification methods, such as cryptographic composite public keys, and PQ/T hybrid data integrity proofs, such as PQ/T hybrid digital signatures.</p>
 
-### Verification Methods
+<h3 id="verification-methods">Verification Methods</h3>
 
-This cryptographic suite is used to verify Data Integrity Proofs [[VC-DATA-INTEGRITY]] produced using PQ/T hybrid key material. 
+<p>This cryptographic suite is used to verify Data Integrity Proofs [[VC-DATA-INTEGRITY]] produced using PQ/T hybrid key material.</p>
 
-[//]: # (Lossless cryptographic key transformation processes that result in equivalent cryptographic key material MAY be used for the processing of digital signatures.)
-
-This is a set of examples of public keys encoded as a `JsonWebKey`, examples are instrumental in introducing composite public keys encoded as `CompositeJwk` 
-
-[//]: # (JWK RFC 7517 - crv P-256, P-384, P-521)
-[//]: # (JWK with Ed RFC 8037 - OKP Octet Key Pair - crv Ed25519, Ed448)
-[//]: # (JWK structure for ML-DSA - https://datatracker.ietf.org/doc/html/draft-ietf-cose-dilithium-02)
+<p>This is a set of examples of public keys encoded as a <code class="language-plaintext highlighter-rouge">JsonWebKey</code>, examples are instrumental in introducing composite public keys encoded as <code class="language-plaintext highlighter-rouge">CompositeJwk</code></p>
 
 <pre class="example nohighlight" title="A P-256 public key encoded as a JsonWebKey">
 {
@@ -226,11 +327,8 @@ This is a set of examples of public keys encoded as a `JsonWebKey`, examples are
 }
 </pre>
 
-[//]: # (https://datatracker.ietf.org/doc/draft-ietf-lamps-pq-composite-sigs/04/)
-[//]: # (pure composite and hashed composite)
-
-#### CompositeJWK
-A composite public key encoded as a `CompositeJWK` contains a PQ public key and a traditional public key both encoded as `JsonWebKey`. In addition, the `CompositeJWK` contains a string `algId` which represents the name of the algorithms used to generate the PQ/T hybrid data integrity proof.
+<h4 id="compositejwk">CompositeJWK</h4>
+<p>A composite public key encoded as a <code class="language-plaintext highlighter-rouge">CompositeJWK</code> contains a PQ public key and a traditional public key both encoded as <code class="language-plaintext highlighter-rouge">JsonWebKey</code>. In addition, the <code class="language-plaintext highlighter-rouge">CompositeJWK</code> contains a string <code class="language-plaintext highlighter-rouge">algId</code> which represents the name of the algorithms used to generate the PQ/T hybrid data integrity proof.</p>
 
 <pre class="example nohighlight" title="A ML-DSA-44/P-256 composite public key encoded as a CompositeJWK">
 {
@@ -426,20 +524,20 @@ A composite public key encoded as a `CompositeJWK` contains a PQ public key and 
 }
 </pre>
 
-### Proof Representations
+<h3 id="proof-representations">Proof Representations</h3>
 
-This section details the proof representation formats that are defined by this specification.
+<p>This section details the proof representation formats that are defined by this specification.</p>
 
-#### DataIntegrityProof
-A proof contains the attributes specified in the [Proofs section](https://www.w3.org/TR/vc-data-integrity/#proofs) of [VC-DATA-INTEGRITY](https://www.w3.org/TR/vc-data-integrity/) with the following restrictions.
+<h4 id="dataintegrityproof">DataIntegrityProof</h4>
+<p>A proof contains the attributes specified in the <a href="https://www.w3.org/TR/vc-data-integrity/#proofs">Proofs section</a> of <a href="https://www.w3.org/TR/vc-data-integrity/">VC-DATA-INTEGRITY</a> with the following restrictions.</p>
 
-The `type` property of the proof MUST be `DataIntegrityProof`.
+<p>The <code class="language-plaintext highlighter-rouge">type</code> property of the proof MUST be <code class="language-plaintext highlighter-rouge">DataIntegrityProof</code>.</p>
 
-The `cryptosuite` property of the proof MUST be `experimental-ml-dsa-ecdsa-2025` or `experimental-ml-dsa-eddsa-2025` based on the composite used.
+<p>The <code class="language-plaintext highlighter-rouge">cryptosuite</code> property of the proof MUST be <code class="language-plaintext highlighter-rouge">experimental-ml-dsa-ecdsa-2025</code> or <code class="language-plaintext highlighter-rouge">experimental-ml-dsa-eddsa-2025</code> based on the composite used.</p>
 
-The value of the `proofValue` property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in [section 3](#algorithms), encoded according to [[FIPS-204]] and ECDSA or EdDSA [[FIPS-186-5]], then encoded using the base-64-url-nopad header and alphabet as described in the [Multibase section](https://www.w3.org/TR/vc-data-integrity/#multibase-0) of [[VC-DATA-INTEGRITY]].
+<p>The value of the <code class="language-plaintext highlighter-rouge">proofValue</code> property of the proof MUST be produced as the concatenation of ML-DSA-44 with ECDSA or EdDSA signatures produced according to using the algorithms specified in <a href="#algorithms">section 3</a>, encoded according to [[FIPS-204]] and ECDSA or EdDSA [[FIPS-186-5]], then encoded using the base-64-url-nopad header and alphabet as described in the <a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">Multibase section</a> of [[VC-DATA-INTEGRITY]].</p>
 
-EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof
+<p>EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof</p>
 <pre class="example nohighlight" title="A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as a DataIntegrityProof">
 {
   ...
@@ -454,96 +552,114 @@ EXAMPLE 13: A composite ML-DSA-44/Ed25519 hybrid digital signature expressed as 
 }
 </pre>
 
-## Algorithms
+<h2 id="algorithms">Algorithms</h2>
 
-The following section describes multiple Data Integrity cryptographic suites that utilize the ML-DSA, ECDSA and EdDSA in composite signature algorithms.
-The cryptographic suites follows the [Composite ML-DSA for use in X.509 Public Key Infrastructure and CMS](https://datatracker.ietf.org/doc/html/draft-ietf-lamps-pq-composite-sigs-04) draft
+<p>The following section describes multiple Data Integrity cryptographic suites that utilize the ML-DSA, ECDSA and EdDSA in composite signature algorithms.
+The cryptographic suites follows the <a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-pq-composite-sigs-04">Composite ML-DSA for use in X.509 Public Key Infrastructure and CMS</a> draft</p>
 
-### id-MLDSA44-Ed25519
-The id-MLDSA44-Ed25519 cryptographic suite takes an input and then cryptographically signs the output resulting in the production of a data integrity proof. The algorithms in this section also include the verification of such a data integrity proof.
+<h3 id="id-mldsa44-ed25519">id-MLDSA44-Ed25519</h3>
+<p>The id-MLDSA44-Ed25519 cryptographic suite takes an input and then cryptographically signs the output resulting in the production of a data integrity proof. The algorithms in this section also include the verification of such a data integrity proof.</p>
 
-#### Create proof
-The following algorithm specifies how to create a data integrity proof given an unsecured data. Required inputs are an unsecured data to be signed, a Composite private key consisting of signing private keys for each component (ML-DSA44 and Ed25519) and a ctx string used in the composite signature combiner, which defaults to the empty string. A data integrity proof, or an error, is produced as output. 
+<h4 id="create-proof">Create proof</h4>
+<p>The following algorithm specifies how to create a data integrity proof given an unsecured data. Required inputs are an unsecured data to be signed, a Composite private key consisting of signing private keys for each component (ML-DSA44 and Ed25519) and a ctx string used in the composite signature combiner, which defaults to the empty string. A data integrity proof, or an error, is produced as output.</p>
 
-1. Check if _len(ctx)_ < 255 otherwise return *error*
-1. Let `M' = Prefix || Domain || len(ctx) || ctx || M` where:
-    - Prefix is _"CompositeAlgorithmSignatures2025"_ (hex encoded 436F6D706F73697465416C676F726974686D5369676E61747572657332303235)
-    - Domain is _"id-MLDSA44-Ed25519"_ (hex encoded 060B6086480186FA6B5008013E)
-1. Let _sk => (mldsaSK, ed25519SK)_
-1. Let _mldsaSig = ML-DSA44.Sign(mldsaSK, M', ctx=Domain)_
-1. Let _ed25519Sig =  _ed25519.Sign(ed25519SK, M')_
-1. If ML-DSA44.Sign() or _ed25519.Sign() return an error, then return *error*
-1. Let _signature = CompositeSignatureValue(ed25519, mldsaSig)_
-1. Return _signature_
+<ol>
+  <li>Check if <em>len(ctx)</em> &lt; 255 otherwise return <em>error</em></li>
+  <li>Let <code class="language-plaintext highlighter-rouge">M' = Prefix || Domain || len(ctx) || ctx || M</code> where:
+    <ul>
+      <li>Prefix is <em>“CompositeAlgorithmSignatures2025”</em> (hex encoded 436F6D706F73697465416C676F726974686D5369676E61747572657332303235)</li>
+      <li>Domain is <em>“id-MLDSA44-Ed25519”</em> (hex encoded 060B6086480186FA6B5008013E)</li>
+    </ul>
+  </li>
+  <li>Let <em>sk =&gt; (mldsaSK, ed25519SK)</em></li>
+  <li>Let <em>mldsaSig = ML-DSA44.Sign(mldsaSK, M’, ctx=Domain)</em></li>
+  <li>Let <em>ed25519Sig =  _ed25519.Sign(ed25519SK, M’)</em></li>
+  <li>If ML-DSA44.Sign() or _ed25519.Sign() return an error, then return <em>error</em></li>
+  <li>Let <em>signature = CompositeSignatureValue(ed25519, mldsaSig)</em></li>
+  <li>Return <em>signature</em></li>
+</ol>
 
-#### Verify proof
-The following algorithm specifies how to verify a data integrity proof given secured data. Required inputs are the secured data, the composite public key consisting of verification public keys for each component (ML-DSA44 and Ed25519) and the ctx, message context string used in the composite signature combiner, which defaults to the empty string. This algorithm returns a *verification result*, which is a struct whose items are:
+<h4 id="verify-proof">Verify proof</h4>
+<p>The following algorithm specifies how to verify a data integrity proof given secured data. Required inputs are the secured data, the composite public key consisting of verification public keys for each component (ML-DSA44 and Ed25519) and the ctx, message context string used in the composite signature combiner, which defaults to the empty string. This algorithm returns a <em>verification result</em>, which is a struct whose items are:</p>
 
+<p><strong>verified</strong>: <em>true</em> or <em>false</em></p>
 
-**verified**: _true_ or _false_
+<ol>
+  <li>Check if <em>len(ctx)</em> &lt; 255 otherwise return <em>error</em></li>
+  <li>Let <em>pk =&gt; (mldsaPK, ed25519PK)</em></li>
+  <li>Let <em>signature =&gt; (ed25519Sig ,mldsaSig)</em></li>
+  <li>Let <code class="language-plaintext highlighter-rouge">M' = Prefix || Domain || len(ctx) || ctx || M</code> where:
+    <ul>
+      <li>Prefix is <em>“CompositeAlgorithmSignatures2025”</em> (hex encoded 436F6D706F73697465416C676F726974686D5369676E61747572657332303235)</li>
+      <li>Domain is <em>“id-MLDSA44-Ed25519”</em> (hex encoded 060B6086480186FA6B5008013E)</li>
+    </ul>
+  </li>
+  <li>If <em>ML-DSA44.Verify(mldsaPK, M’, mldsaSig, ctx=Domain)</em> return error, return <strong>verified</strong> = false</li>
+  <li>If <em>ed25519.Verify(ed25519PK, M’, ed25519Sig)</em> return error, return <strong>verified</strong> = false</li>
+  <li>If all succeeded, return <strong>verified</strong> = true</li>
+</ol>
 
+<h3 id="id-mldsa465-ed25519">id-MLDSA465-Ed25519</h3>
+<p>The id-MLDSA65-Ed25519 cryptographic suite takes an input and then cryptographically signs the output resulting in the production of a data integrity proof. The algorithms in this section also include the verification of such a data integrity proof.</p>
 
-1. Check if _len(ctx)_ < 255 otherwise return *error*
-1. Let _pk => (mldsaPK, ed25519PK)_
-1. Let _signature => (ed25519Sig ,mldsaSig)_
-1. Let `M' = Prefix || Domain || len(ctx) || ctx || M` where:
-    - Prefix is _"CompositeAlgorithmSignatures2025"_ (hex encoded 436F6D706F73697465416C676F726974686D5369676E61747572657332303235)
-    - Domain is _"id-MLDSA44-Ed25519"_ (hex encoded 060B6086480186FA6B5008013E)
-1. If _ML-DSA44.Verify(mldsaPK, M', mldsaSig, ctx=Domain)_ return error, return **verified** = false
-1. If _ed25519.Verify(ed25519PK, M', ed25519Sig)_ return error, return **verified** = false
-1. If all succeeded, return **verified** = true
+<h4 id="create-proof-1">Create proof</h4>
+<p>The following algorithm specifies how to create a data integrity proof given an unsecured data. Required inputs are an unsecured data to be signed, a Composite private key consisting of signing private keys for each component (ML-DSA65 and Ed25519) and a ctx string used in the composite signature combiner, which defaults to the empty string. A data integrity proof, or an error, is produced as output.</p>
 
-### id-MLDSA465-Ed25519
-The id-MLDSA65-Ed25519 cryptographic suite takes an input and then cryptographically signs the output resulting in the production of a data integrity proof. The algorithms in this section also include the verification of such a data integrity proof.
+<ol>
+  <li>Check if <em>len(ctx)</em> &lt; 255 otherwise return <em>error</em></li>
+  <li>Let <code class="language-plaintext highlighter-rouge">M' = Prefix || Domain || len(ctx) || ctx || M</code> where:
+    <ul>
+      <li>Prefix is <em>“CompositeAlgorithmSignatures2025”</em> (hex encoded 436F6D706F73697465416C676F726974686D5369676E61747572657332303235)</li>
+      <li>Domain is <em>“id-MLDSA65-Ed25519”</em> (hex encoded 060B6086480186FA6B50080147)</li>
+    </ul>
+  </li>
+  <li>Let <em>sk =&gt; (mldsaSK, ed25519SK)</em></li>
+  <li>Let <em>mldsaSig = ML-DSA65.Sign(mldsaSK, M’, ctx=Domain)</em></li>
+  <li>Let <em>ed25519Sig =  _ed25519.Sign(ed25519SK, M’)</em></li>
+  <li>If ML-DSA65.Sign() or _ed25519.Sign() return an error, then return <em>error</em></li>
+  <li>Let <em>signature = CompositeSignatureValue(ed25519, mldsaSig)</em></li>
+  <li>Return <em>signature</em></li>
+</ol>
 
-#### Create proof
-The following algorithm specifies how to create a data integrity proof given an unsecured data. Required inputs are an unsecured data to be signed, a Composite private key consisting of signing private keys for each component (ML-DSA65 and Ed25519) and a ctx string used in the composite signature combiner, which defaults to the empty string. A data integrity proof, or an error, is produced as output. 
+<h4 id="verify-proof-1">Verify proof</h4>
+<p>The following algorithm specifies how to verify a data integrity proof given secured data. Required inputs are the secured data, the composite public key consisting of verification public keys for each component (ML-DSA65 and Ed25519) and the ctx, message context string used in the composite signature combiner, which defaults to the empty string. This algorithm returns a <em>verification result</em>, which is a struct whose items are:</p>
 
-1. Check if _len(ctx)_ < 255 otherwise return *error*
-1. Let `M' = Prefix || Domain || len(ctx) || ctx || M` where:
-    - Prefix is _"CompositeAlgorithmSignatures2025"_ (hex encoded 436F6D706F73697465416C676F726974686D5369676E61747572657332303235)
-    - Domain is _"id-MLDSA65-Ed25519"_ (hex encoded 060B6086480186FA6B50080147)
-1. Let _sk => (mldsaSK, ed25519SK)_
-1. Let _mldsaSig = ML-DSA65.Sign(mldsaSK, M', ctx=Domain)_
-1. Let _ed25519Sig =  _ed25519.Sign(ed25519SK, M')_
-1. If ML-DSA65.Sign() or _ed25519.Sign() return an error, then return *error*
-1. Let _signature = CompositeSignatureValue(ed25519, mldsaSig)_
-1. Return _signature_
+<p><strong>verified</strong>: <em>true</em> or <em>false</em></p>
 
-#### Verify proof
-The following algorithm specifies how to verify a data integrity proof given secured data. Required inputs are the secured data, the composite public key consisting of verification public keys for each component (ML-DSA65 and Ed25519) and the ctx, message context string used in the composite signature combiner, which defaults to the empty string. This algorithm returns a *verification result*, which is a struct whose items are:
+<ol>
+  <li>Check if <em>len(ctx)</em> &lt; 255 otherwise return <em>error</em></li>
+  <li>Let <em>pk =&gt; (mldsaPK, ed25519PK)</em></li>
+  <li>Let <em>signature =&gt; (ed25519Sig ,mldsaSig)</em></li>
+  <li>Let <code class="language-plaintext highlighter-rouge">M' = Prefix || Domain || len(ctx) || ctx || M</code> where:
+    <ul>
+      <li>Prefix is <em>“CompositeAlgorithmSignatures2025”</em> (hex encoded 436F6D706F73697465416C676F726974686D5369676E61747572657332303235)</li>
+      <li>Domain is <em>“id-MLDSA65-Ed25519”</em> (hex encoded 060B6086480186FA6B50080147)</li>
+    </ul>
+  </li>
+  <li>If <em>ML-DSA65.Verify(mldsaPK, M’, mldsaSig, ctx=Domain)</em> return error, return <strong>verified</strong> = false</li>
+  <li>If <em>ed25519.Verify(ed25519PK, M’, ed25519Sig)</em> return error, return <strong>verified</strong> = false</li>
+  <li>If all succeeded, return <strong>verified</strong> = true</li>
+</ol>
 
+<h2 id="security-considerations">Security Considerations</h2>
 
-**verified**: _true_ or _false_
+<p>This section is non-normative.</p>
 
+<p>Before reading this section, readers are urged to familiarize themselves with general security advice provided in the <a href="https://www.w3.org/TR/vc-data-integrity/#security-considerations">Security Considerations section of the Data Integrity specification</a>.</p>
 
-1. Check if _len(ctx)_ < 255 otherwise return *error*
-1. Let _pk => (mldsaPK, ed25519PK)_
-1. Let _signature => (ed25519Sig ,mldsaSig)_
-1. Let `M' = Prefix || Domain || len(ctx) || ctx || M` where:
-    - Prefix is _"CompositeAlgorithmSignatures2025"_ (hex encoded 436F6D706F73697465416C676F726974686D5369676E61747572657332303235)
-    - Domain is _"id-MLDSA65-Ed25519"_ (hex encoded 060B6086480186FA6B50080147)
-1. If _ML-DSA65.Verify(mldsaPK, M', mldsaSig, ctx=Domain)_ return error, return **verified** = false
-1. If _ed25519.Verify(ed25519PK, M', ed25519Sig)_ return error, return **verified** = false
-1. If all succeeded, return **verified** = true
+<p>The following section describes security considerations that developers implementing this specification should be aware of in order to avoid violating security assumptions.</p>
 
-## Security Considerations
+<h2 id="privacy-considerations">Privacy Considerations</h2>
 
-This section is non-normative.
+<p>This section is non-normative.</p>
 
-Before reading this section, readers are urged to familiarize themselves with general security advice provided in the [Security Considerations section of the Data Integrity specification](https://www.w3.org/TR/vc-data-integrity/#security-considerations).
+<p>Before reading this section, readers are urged to familiarize themselves with general privacy advice provided in the <a href="https://www.w3.org/TR/vc-data-integrity/#privacy-considerations">Privacy Considerations section of the Data Integrity specification</a>.</p>
 
-The following section describes security considerations that developers implementing this specification should be aware of in order to avoid violating security assumptions.
+<p>The following section describes privacy considerations that developers implementing this specification should be aware of in order to avoid violating privacy assumptions.</p>
 
-## Privacy Considerations
-
-This section is non-normative.
-
-Before reading this section, readers are urged to familiarize themselves with general privacy advice provided in the [Privacy Considerations section of the Data Integrity specification](https://www.w3.org/TR/vc-data-integrity/#privacy-considerations).
-
-The following section describes privacy considerations that developers implementing this specification should be aware of in order to avoid violating privacy assumptions.
-
-
-<section id='conformance'>
+<section id="conformance">
   <!-- This section is filled automatically by ReSpec. -->
 </section>
+
+  </body>
+</html>
