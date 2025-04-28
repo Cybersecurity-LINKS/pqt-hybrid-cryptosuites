@@ -472,7 +472,7 @@ The following algorithm specifies how to create a data integrity proof given an 
 1. Let _sk => (mldsaSK, ed25519SK)_
 1. Let _mldsaSig = ML-DSA44.Sign(mldsaSK, M', ctx=Domain)_
 1. Let _ed25519Sig =  _ed25519.Sign(ed25519SK, M')_
-1. If ML-DSA44.Sign() or _ed25519.Sign() return an error, then return *error*
+1. If ML-DSA44.Sign() or _ed25519.Sign()_ return an error, then return *error*
 1. Let _signature = CompositeSignatureValue(ed25519, mldsaSig)_
 1. Return _signature_
 
@@ -506,7 +506,7 @@ The following algorithm specifies how to create a data integrity proof given an 
 1. Let _sk => (mldsaSK, ed25519SK)_
 1. Let _mldsaSig = ML-DSA65.Sign(mldsaSK, M', ctx=Domain)_
 1. Let _ed25519Sig =  _ed25519.Sign(ed25519SK, M')_
-1. If ML-DSA65.Sign() or _ed25519.Sign() return an error, then return *error*
+1. If ML-DSA65.Sign() or _ed25519.Sign()_ return an error, then return *error*
 1. Let _signature = CompositeSignatureValue(ed25519, mldsaSig)_
 1. Return _signature_
 
